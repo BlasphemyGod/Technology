@@ -16,8 +16,7 @@
             </Style.Triggers>
         </Style>
 
-        <SolidColorBrush x:Key="gameViewBorder" Color="#FF444444" />
-        <!-- Кисть для окантовки игр-->
+        <SolidColorBrush x:Key="gameViewBorder" Color="#FF444444" /> <!-- Кисть для окантовки игр-->
 
         <Style x:Key="MyButtonStyle" TargetType="Button">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -75,13 +74,24 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="{StaticResource gameViewBorder}" BorderThickness="2" Margin="10,10,10,10">
+                        <Border Name="gameView" BorderBrush="{StaticResource gameViewBorder}" BorderThickness="2" Margin="10,10,10,10" Opacity="0">
                             <StackPanel Background="#FF181818">
                                 <Image Source="{Binding Path=image}" Stretch="Fill"/>
                                 <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Path=name}"></TextBlock>
                                 </Label>
                             </StackPanel>
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="Loaded">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:0.4" Storyboard.TargetName="gameView" Storyboard.TargetProperty="Opacity" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                            </Border.Triggers>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
