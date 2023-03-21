@@ -1,0 +1,91 @@
+﻿<Window x:Class="Technology.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Technology"
+        mc:Ignorable="d"
+        Title="Стим Games" Height="780" Width="1010">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid Background="#FF121212" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*" MinWidth="240"></ColumnDefinition>
+            <ColumnDefinition Width="33*" MinWidth="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Background="#FF161616">
+            <Image Source="/Resources/Логотип.png" Stretch="Fill"/>
+            <Border CornerRadius="16">
+                <Border.Style>
+                    <Style>
+                        <Setter Property="Border.Background" Value="#FF161616"/>
+                        <Style.Triggers>
+                            <Trigger Property="Border.IsMouseOver" Value="True">
+                                <Setter Property="Border.Background" Value="#FF232323" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Label Content="Магазин" Foreground="White" FontFamily="Verdana" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+            <Border CornerRadius="16">
+                <Border.Style>
+                    <Style>
+                        <Setter Property="Border.Background" Value="#FF161616"/>
+                        <Style.Triggers>
+                            <Trigger Property="Border.IsMouseOver" Value="True">
+                                <Setter Property="Border.Background" Value="#FF232323" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Label Content="Библиотека" Foreground="White" FontFamily="Verdana" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            </Border>
+        </StackPanel>
+        <ScrollViewer Grid.Column="1" Grid.Row="0" VerticalScrollBarVisibility="Auto" MinWidth="350" MinHeight="457">
+            <WrapPanel ItemHeight="350" ItemWidth="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                    <Image Source="/Resources/The_Sims_Coverart-250x300.png" Stretch="Fill"/>
+                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock TextTrimming="CharacterEllipsis">The Sims</TextBlock>
+                    </Label>
+                </StackPanel>
+                <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                    <Image Source="/Resources/resident_evil.jpg" Stretch="Fill"/>
+
+                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock TextTrimming="CharacterEllipsis">Resident Evil 5</TextBlock>
+                    </Label>
+                </StackPanel>
+                <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                    <Image Source="/Resources/Resident_Evil_ORC_Cover.png" Stretch="Fill"/>
+                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock TextTrimming="CharacterEllipsis">Resident Evi: Operation Raccoon City</TextBlock>
+                    </Label>
+                </StackPanel>
+                <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                    <Image Source="/Resources/Front-Cover-WC3-Reign-of-Chaos-Night-Elf.jpg" Stretch="Fill"/>
+                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock TextTrimming="CharacterEllipsis">Warcraft III: Reign of Chaos</TextBlock>
+                    </Label>
+                </StackPanel>
+                <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                    <Image Source="/Resources/magical_chase.jpg" Stretch="Fill"/>
+                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock TextTrimming="CharacterEllipsis">Magical Chase</TextBlock>
+                    </Label>
+                </StackPanel>
+                <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                    <Image Source="/Resources/BRCover.jpg" Stretch="Fill"/>
+                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock TextTrimming="CharacterEllipsis">Battle Realms</TextBlock>
+                    </Label>
+                </StackPanel>
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\BRCover.jpg" />
+    <None Remove="Resources\Front-Cover-WC3-Reign-of-Chaos-Night-Elf.jpg" />
+    <None Remove="Resources\magical_chase.jpg" />
+    <None Remove="Resources\resident_evil.jpg" />
+    <None Remove="Resources\Resident_Evil_ORC_Cover.png" />
+    <None Remove="Resources\The_Sims_Coverart-250x300.png" />
+    <None Remove="Resources\Логотип.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\BRCover.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Front-Cover-WC3-Reign-of-Chaos-Night-Elf.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\magical_chase.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\resident_evil.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Resident_Evil_ORC_Cover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\The_Sims_Coverart-250x300.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Логотип.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
