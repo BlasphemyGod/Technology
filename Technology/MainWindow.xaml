@@ -7,7 +7,33 @@
         mc:Ignorable="d"
         Title="Стим Games" Height="780" Width="1010">
     <Window.Resources>
-        
+        <Style x:Key="MenuButton" TargetType="Border">
+            <Setter Property="Border.Background" Value="#FF161616"/>
+            <Style.Triggers>
+                <Trigger Property="Border.IsMouseOver" Value="True">
+                    <Setter Property="Border.Background" Value="#FF232323" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Padding="0" BorderBrush="DarkGray" CornerRadius="3" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid Background="#FF121212" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
         <Grid.RowDefinitions>
@@ -19,73 +45,41 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Background="#FF161616">
             <Image Source="/Resources/Логотип.png" Stretch="Fill"/>
-            <Border CornerRadius="16">
-                <Border.Style>
-                    <Style>
-                        <Setter Property="Border.Background" Value="#FF161616"/>
-                        <Style.Triggers>
-                            <Trigger Property="Border.IsMouseOver" Value="True">
-                                <Setter Property="Border.Background" Value="#FF232323" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Border.Style>
-                <Label Content="Магазин" Foreground="White" FontFamily="Verdana" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Border CornerRadius="16" Style="{StaticResource MenuButton}">
+                <Button Style="{StaticResource MyButtonStyle}" Command="ApplicationCommands.Open">
+                    <Button.CommandBindings>
+                        <CommandBinding Command="Open" Executed="enterShop" />
+                    </Button.CommandBindings>
+                    <Label Content="Магазин" Foreground="White" FontFamily="Verdana" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                </Button>
             </Border>
-            <Border CornerRadius="16">
-                <Border.Style>
-                    <Style>
-                        <Setter Property="Border.Background" Value="#FF161616"/>
-                        <Style.Triggers>
-                            <Trigger Property="Border.IsMouseOver" Value="True">
-                                <Setter Property="Border.Background" Value="#FF232323" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Border.Style>
-                <Label Content="Библиотека" Foreground="White" FontFamily="Verdana" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Border CornerRadius="16" Style="{StaticResource MenuButton}">
+                <Button Style="{StaticResource MyButtonStyle}" Command="ApplicationCommands.Open">
+                    <Button.CommandBindings>
+                        <CommandBinding Command="Open" Executed="enterLibrary" />
+                    </Button.CommandBindings>
+                    <Label Content="Библиотека" Foreground="White" FontFamily="Verdana" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+                </Button>
             </Border>
         </StackPanel>
         <ScrollViewer Grid.Column="1" Grid.Row="0" VerticalScrollBarVisibility="Auto" MinWidth="350" MinHeight="457">
-            <WrapPanel ItemHeight="350" ItemWidth="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <StackPanel Background="#FF181818" Margin="10,10,10,10">
-                    <Image Source="/Resources/The_Sims_Coverart-250x300.png" Stretch="Fill"/>
-                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock TextTrimming="CharacterEllipsis">The Sims</TextBlock>
-                    </Label>
-                </StackPanel>
-                <StackPanel Background="#FF181818" Margin="10,10,10,10">
-                    <Image Source="/Resources/resident_evil.jpg" Stretch="Fill"/>
-
-                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock TextTrimming="CharacterEllipsis">Resident Evil 5</TextBlock>
-                    </Label>
-                </StackPanel>
-                <StackPanel Background="#FF181818" Margin="10,10,10,10">
-                    <Image Source="/Resources/Resident_Evil_ORC_Cover.png" Stretch="Fill"/>
-                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock TextTrimming="CharacterEllipsis">Resident Evi: Operation Raccoon City</TextBlock>
-                    </Label>
-                </StackPanel>
-                <StackPanel Background="#FF181818" Margin="10,10,10,10">
-                    <Image Source="/Resources/Front-Cover-WC3-Reign-of-Chaos-Night-Elf.jpg" Stretch="Fill"/>
-                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock TextTrimming="CharacterEllipsis">Warcraft III: Reign of Chaos</TextBlock>
-                    </Label>
-                </StackPanel>
-                <StackPanel Background="#FF181818" Margin="10,10,10,10">
-                    <Image Source="/Resources/magical_chase.jpg" Stretch="Fill"/>
-                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock TextTrimming="CharacterEllipsis">Magical Chase</TextBlock>
-                    </Label>
-                </StackPanel>
-                <StackPanel Background="#FF181818" Margin="10,10,10,10">
-                    <Image Source="/Resources/BRCover.jpg" Stretch="Fill"/>
-                    <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock TextTrimming="CharacterEllipsis">Battle Realms</TextBlock>
-                    </Label>
-                </StackPanel>
-            </WrapPanel>
+            <ItemsControl x:Name="gamesList">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel ItemHeight="350" ItemWidth="250" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="#FF181818" Margin="10,10,10,10">
+                            <Image Source="{Binding Path=image}" Stretch="Fill"/>
+                            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Verdana" Foreground="White" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding Path=name}"></TextBlock>
+                            </Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
     </Grid>
 </Window>
